@@ -1,0 +1,29 @@
+<% if current_user %>
+<%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: "btn btn-light" %>
+<%= link_to 'New Project', new_project_path%>
+<% else %>
+<%= link_to 'Sign Up', new_user_registration_path %>
+<% end %>
+<h1>Projects#index</h1>
+<p>Find me in app/views/projects/index.html.erb</p>
+<div class="container">
+<table class="table table-borderless table-dark">
+  <thead>
+    <tr>
+      <th>Project Title</th>
+      <th>Project Description</th>
+      <th>Create At</th>
+    </tr>
+  </thead>
+  <tbody>
+	<% @project.each do |project| %>
+    <tr>
+      <td><%= project.name %></td>
+      <td><%= project.description %></td>
+      <td><%= project.created_at%></td>
+			<td><%= link_to 'Show', project %></td>
+    </tr>
+		<% end %>
+  </tbody>
+</table>
+</div>
