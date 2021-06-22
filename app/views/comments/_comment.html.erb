@@ -1,5 +1,3 @@
-<%= form_for([@project, @project.comments.build]) do |f| %>
-	<h1><%= f.label :comment %></h1><br />
-	<%= f.text_area :comment %><br />
-	<%= f.submit %>
-	<% end %>
+<div class="comments">
+	<%= comment.comment %><br>
+</div>

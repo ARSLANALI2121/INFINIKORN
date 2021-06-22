@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :clients
   get 'projects/index'
   get 'projects/new'
   get 'projects/show'

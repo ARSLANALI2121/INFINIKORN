@@ -16,4 +16,18 @@
 .mynavbar {
     float: right;
 }
-
+.main{
+    float: right;
+    font-size: 1.0rem;
+}
+.back{
+    float: right;
+    font-size: 1.0rem;
+}
+.mybtn{
+    float: right;
+}
+.comments{
+    border: solid;
+    width: auto;
+}
