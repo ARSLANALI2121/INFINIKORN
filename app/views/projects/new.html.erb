@@ -3,7 +3,7 @@
 	<%= form_for @project do |p| %>
   	<div class="form-group">
     	<label for="exampleInputEmail1">Project Title</label>
-			<%= p.text_field :name, class: "form-control", placeholder: "Enter Project title", validate: true%>
+			<%= p.text_field :name, class: "form-control", placeholder: "Enter Project title", required: true %>
     	<small id="emailHelp" class="form-text text-muted">Enter project tile for understand project type.</small>
   	</div>
   	<div class="form-group">

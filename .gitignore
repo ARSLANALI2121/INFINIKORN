@@ -10,17 +10,6 @@
 # Ignore the default SQLite database.
 /db/*.sqlite3
 /db/*.sqlite3-*
-/views/clients
-/views/projects
-/views/home
-/views/comments
-/models/client
-/models/project
-/models/user
-/models/comment
-/controller/comments_controller.rb
-/controller/projects_controller.rb
-/controller/home_controller.rb
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
