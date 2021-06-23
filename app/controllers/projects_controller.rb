@@ -1,4 +1,5 @@
 class ProjectsController < ApplicationController
+  before_action :authenticate_user!, only: [:edit, :destroy, :update]
   before_action :set_project, only: [:show, :edit, :destroy, :update]
   def index
     @project = Project.all
@@ -22,7 +23,7 @@ class ProjectsController < ApplicationController
       redirect_to projects_path
     else
       flash[:alert] = " Sorry this is an error in this information"
-      render 'form'
+      render 'new'
     end
   end
  

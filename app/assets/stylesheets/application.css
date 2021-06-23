@@ -16,26 +16,34 @@
 .mynavbar {
     float: right;
 }
-.main{
+.main {
+    float: right;
+    font-size: 1.0rem;
+    margin-left: 5px;
+}
+.back {
     float: right;
     font-size: 1.0rem;
 }
-.back{
-    float: right;
-    font-size: 1.0rem;
-}
-.mybtn{
+.mybtn {
     float: right;
 }
-.comments{
+.comments {
     border: solid;
     width: auto;
 }
-.btnRegister{
+.btnRegister {
     float: left;
     margin-top: 5px;
     margin-left: 400px;
 }
-.user-section{
+.user-section {
     float: right;
+}
+.error-section {
+  width: 450px;
+  border: 2px solid red;
+  padding: 7px 7px 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0
 }
