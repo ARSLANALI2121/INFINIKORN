@@ -19,29 +19,29 @@ class ProjectsController < ApplicationController
     @project = Project.new(params_project)
     @project.user_id = current_user.id
     if @project.save
-      flash[:notice] = "Your Project is created successfully"
+      flash[:notice] = 'Your Project is created successfully'
       redirect_to projects_path
     else
-      flash[:alert] = " Sorry this is an error in this information"
+      flash[:alert] = 'Sorry this is an error in this information'
       render 'new'
     end
   end
  
   def update
     if @project.update(params_project)
-      flash[:notice] = " Project Information is updated successfully...!"
+      flash[:notice] = 'Project Information is updated successfully'
     else
-      flash[:error] = " Their is some error is this information"
+      flash[:alert] = 'Their is some error is this information'
     end
     redirect_to projects_path
   end
  
   def destroy
     if @project.destroy
-      flash[:success]= "Project is deleted successfully...!"
+      flash[:notice] = 'Project is deleted successfully'
       redirect_to projects_path
     else
-      flash[:error]= "Their is an Error"
+      flash[:alert] = 'Their is an Error'
     end
   end
 

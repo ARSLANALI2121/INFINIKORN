@@ -1,10 +1,10 @@
-<div class="container user-section">                                    
-  <%= form_for @user do |f| %>
+<div class="container float-right">                                    
+  <%= form_for [:admin, @user] do |f| %>
     <div class="row">
 			<div class="col-md-10 form-group ">
 					<%= f.text_field :first_name,  class:"form-control", id:"form_uname", placeholder:"First Name *", required: true %>  
 					<span class="error_form" id="uname_error_message"></span>
-			</div><br>
+			</div>
 
 			<div class="col-md-10 form-group">
 					<%= f.text_field :last_name,  class:"form-control", id:"form_lname" ,placeholder:" Last Name *", required: true %>
@@ -14,7 +14,7 @@
 			<div class="col-md-10 form-group">
 					<%= f.text_field :email, class:"form-control", id: "form_email", placeholder:"Your Eamil *", required: true %> 
 					<span class="error_form" id="email_error_message"></span>  
-			</div><br>
+			</div>
 
 			<div class="col-md-10 form-group">
 					<%= f.password_field :password, class:"form-control", id:"form_password", placeholder:"Password *", required: true %>
@@ -30,7 +30,8 @@
 				<%= f.file_field :profile_image %>
 				<span class="error_form" id="password_error_message"></span> 
 		  </div>
-		<%= f.submit "Register", class:"btnRegister btn btn-secondary" %>	 
-		</div>                     						
+		 
+		</div>     
+		<%= f.submit  class:"btn btn-secondary" %>	                						
 	<% end %>
 </div>

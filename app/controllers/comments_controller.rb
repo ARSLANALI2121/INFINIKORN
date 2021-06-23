@@ -5,7 +5,7 @@ class CommentsController < ApplicationController
 		@comment.user_id = current_user.id
 			respond_to do |format|
 				if @comment.save
-					format.html { redirect_to @project , flash[:success] = "Comment successfully added" }
+					format.html { redirect_to @project , flash[:notice] = 'Comment successfully added' }
 			end
 			format.js
 		end
