@@ -1,4 +1,4 @@
-<div class="container">                                    
+<div class="container user-section">                                    
   <%= form_for @user do |f| %>
     <div class="row">
 			<div class="col-md-10 form-group ">
@@ -21,6 +21,7 @@
 					<%= f.password_field :password_confirmation ,class:"form-control", id: "form_retry_password", placeholder:"Retry Password *", required: true %> 
 					<span class="error_form" id="retry_password_error_message"></span>   
 					<%= f.submit "Register", class:"btnRegister btn btn-secondary" %>	    
-			</div>                      						
+			</div> 
+		</div>                     						
 	<% end %>
 </div>

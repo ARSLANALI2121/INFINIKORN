@@ -9,10 +9,8 @@ class UsersController < ApplicationController
   end
 
   def create
-    byebug
     @user = User.new(user_params)
-    if @user.save
-      
+    if @user.save  
       flash[:success]= " User was successfully created...!"
       redirect_to users_path
     else
@@ -39,7 +37,7 @@ class UsersController < ApplicationController
   private
 
   def set_user
-    @user = User.find_by(params[:id])
+    @user = User.find(params[:id])
   end
 
   def user_params

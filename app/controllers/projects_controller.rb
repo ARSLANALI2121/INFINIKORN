@@ -19,14 +19,14 @@ class ProjectsController < ApplicationController
     @project.user_id = current_user.id
     if @project.save
       flash[:notice] = "Your Project is created successfully"
+      redirect_to projects_path
     else
       flash[:alert] = " Sorry this is an error in this information"
+      render 'form'
     end
-    redirect_to projects_path
   end
  
   def update
-    # byebug
     if @project.update(params_project)
       flash[:notice] = " Project Information is updated successfully...!"
     else
@@ -36,7 +36,6 @@ class ProjectsController < ApplicationController
   end
  
   def destroy
-    # byebug
     if @project.destroy
       flash[:success]= "Project is deleted successfully...!"
       redirect_to projects_path
