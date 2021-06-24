@@ -1,0 +1,37 @@
+<div class="container">	
+  <h1 class="text-center"><%= @project.name %></h1>
+    <p id="notice"><%= notice %></p>
+    <%= link_to 'Go Back', admin_projects_path, class: "btn btn-secondary float-right" %>
+    <table class="">
+      <tbody>
+        <tr>
+          <td><strong>Prject Name: </strong></td>
+          <td><%= @project.name %></td>
+        </tr>
+        <tr>
+          <td><strong>Create At: </strong></td>
+          <td><%= @project.created_at %></td>
+        </tr>
+        <tr>
+          <td><strong>Project Description : </strong></td>
+          <td><%= @project.description %></td>
+        </tr>
+      </tbody>
+  </table>
+
+    <div id='comments-section'>
+      <% @project.comments.each do |comment| %>
+        <%= render 'admin/comments/comment', comment: comment %>
+        <%= link_to "Delete", ([:admin, @project, comment]), method: :delete, data: { confirm: 'Are you sure?' } %>
+      <% end %>
+    </div>
+
+    <div class="comment">
+      Total Comments : <%= @project.comments.count %>	
+    </div>
+
+    <div id="comment">
+      <%= render 'admin/comments/form'%>
+    </div>
+
+  </div>

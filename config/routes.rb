@@ -1,9 +1,17 @@
 Rails.application.routes.draw do
-  resources :clients
-  resources :users
+  get 'payments/index'
+  get 'payments/new'
+  get 'payments/show'
+  get 'payments/edit'
   devise_for :users
-  root to: 'projects#index'
-  resources :projects do
-    resources :comments
+ 
+  namespace :admin  do 
+    resources :users
+    resources :projects do
+      resources :comments
   end
+end 
+
+  resources :clients
+  root to: 'admin/projects#index' 
 end

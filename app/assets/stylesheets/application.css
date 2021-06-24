@@ -13,25 +13,3 @@
  *= require_tree .
  *= require_self
  */
-.mynavbar {
-    float: right;
-}
-.main{
-    float: right;
-    font-size: 1.0rem;
-}
-.back{
-    float: right;
-    font-size: 1.0rem;
-}
-.mybtn{
-    float: right;
-}
-.comments{
-    border: solid;
-    width: auto;
-}
-.btnRegister{
-    float: left;
-    margin-top: 5px;
-}
