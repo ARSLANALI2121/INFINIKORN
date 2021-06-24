@@ -1,5 +1,12 @@
 <div class="container float-right">                                    
   <%= form_for [:admin, @user] do |f| %>
+	<div class="container">
+    <% if @user.errors.any? %>
+      <% @user.errors.full_messages.each  do |error| %>
+        <li> <%= error %></li>
+      <% end %>
+    <% end %>
+  </div>
     <div class="row">
 			<div class="col-md-10 form-group ">
 					<%= f.text_field :first_name,  class:"form-control", id:"form_uname", placeholder:"First Name *", required: true %>  
@@ -12,7 +19,7 @@
 			</div> 
 
 			<div class="col-md-10 form-group">
-					<%= f.text_field :email, class:"form-control", id: "form_email", placeholder:"Your Eamil *", required: true %> 
+					<%= f.email_field :email, class:"form-control", id: "form_email", placeholder:"Your Eamil *", required: true %> 
 					<span class="error_form" id="email_error_message"></span>  
 			</div>
 

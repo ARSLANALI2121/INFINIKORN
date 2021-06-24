@@ -1,20 +1,21 @@
 <div class="container">
   <%= form_for [:admin, @project] do |p| %>
-    <% if @project.errors.any? %>
-      <% @project.errors.full_messages.each  do |error| %>
-        <h1> <%= error %></h1>
+    <div class="container">
+      <% if @project.errors.any? %>
+        <% @project.errors.full_messages.each  do |error| %>
+          <li> <%= error %></li>
+        <% end %>
       <% end %>
-    <% end %>
-  
+    </div>
   <div class="form-group">
     <label for="exampleInputEmail1">Project Title</label>
-    <%= p.text_field :name, class: "form-control", placeholder: "Enter Project title" %>
+    <%= p.text_field :name, class: "form-control", placeholder: "Enter Project title", required: true %>
     <small id="emailHelp" class="form-text text-muted">Enter project tile for understand project type.</small>
   </div>
 
     <div class="form-group">
       <label for="exampleInputPassword1">Project Description</label>
-      <%= p.text_area :description, class: "form-control", placeholder: "Enter your Project Description" %>
+      <%= p.text_area :description, class: "form-control", placeholder: "Enter your Project Description", required: true %>
     </div>
     <%= p.submit  class:"btn btn-primary" %>
   <% end %>

@@ -1,7 +1,8 @@
 module Admin
   class ProjectsController < BaseController
-    before_action :authenticate_user!, only: [:edit, :destroy, :update]
-    before_action :set_project, only: [:show, :edit, :destroy, :update]
+    before_action :authenticate_user!, only: %i[edit destroy update]
+    before_action :set_project, only: %i[show edit destroy update]
+
     def index
       @project = Project.all
     end
@@ -10,11 +11,9 @@ module Admin
       @project = Project.new
     end
 
-    def show
-    end
+    def show; end
 
-    def edit
-    end
+    def edit; end
 
     def create
       @project = Project.new(params_project)
@@ -23,7 +22,6 @@ module Admin
         flash[:notice] = 'Your Project is created successfully'
         redirect_to admin_projects_path
       else
-        flash[:alert] = 'Sorry this is an error in this information'
         render 'new'
       end
     end
@@ -31,10 +29,10 @@ module Admin
     def update
       if @project.update(params_project)
         flash[:notice] = 'Project Information is updated successfully'
+        redirect_to admin_projects_path
       else
-        flash[:alert] = 'Their is some error is this information'
-      end
-      redirect_to admin_projects_path
+        render 'edit'
+      end      
     end
   
     def destroy
@@ -42,7 +40,7 @@ module Admin
         flash[:notice] = 'Project is deleted successfully'
         redirect_to admin_projects_path
       else
-        flash[:alert] = 'Their is an Error'
+        redirect_to @project
       end
     end
 

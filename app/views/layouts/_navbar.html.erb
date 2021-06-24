@@ -1,7 +1,7 @@
 <div id="app" class="container">
   <nav class="navbar navbar-expand-md navbar-light bg-light">
       <div class="collapse navbar-collapse" id="navbarNav">
-        <% if user_signed_in? %>
+        <% if user_signed_in? && current_user%>
           <ul class="navbar-nav mr-auto">
               <li class="nav-item active">
                   <a class="nav-link"><%= link_to 'New Project', new_admin_project_path, class: "btn btn-outline-dark" %>|| <span class="sr-only">(current)</span></a>
