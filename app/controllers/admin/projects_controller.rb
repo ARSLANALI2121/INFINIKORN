@@ -34,13 +34,13 @@ module Admin
       else
         flash[:alert] = 'Their is some error is this information'
       end
-      redirect_to projects_path
+      redirect_to admin_projects_path
     end
   
     def destroy
       if @project.destroy
         flash[:notice] = 'Project is deleted successfully'
-        redirect_to projects_path
+        redirect_to admin_projects_path
       else
         flash[:alert] = 'Their is an Error'
       end

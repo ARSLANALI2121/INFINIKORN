@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'payments/index'
+  get 'payments/new'
+  get 'payments/show'
+  get 'payments/edit'
   devise_for :users
  
   namespace :admin  do 
