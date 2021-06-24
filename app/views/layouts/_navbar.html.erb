@@ -1,28 +1,38 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container-fluid">
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <% if user_signed_in? %>
-      <ul class="mynavbar navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active"> <%= link_to 'New Project', new_project_path, class: "btn btn-outline-dark main"%></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active"><%= link_to 'Add Client', new_client_path, class: "btn btn-outline-dark main" %></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active"><%= link_to 'Edit Profile', edit_user_registration_path, class: "btn btn-outline-dark main" %></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active"><%= link_to 'User List', admin_users_path, class: "btn btn-outline-dark main" %></a>
-        </li>
-      </ul>
-      <% else %>
-      <div class="nav navbar-nav navbar-right">
-        <a class="nav-link active"> <%= link_to 'Project List', projects_path, class: "btn btn-outline-dark main"%></a>
-        <%= link_to 'Sign Up', new_user_registration_path, class: "btn btn-dark" %>
-        <%= link_to ' Log In', new_user_session_path, class: "btn btn-dark" %>
+<div id="app" class="container">
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <% if user_signed_in? %>
+          <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                  <a class="nav-link"><%= link_to 'New Project', new_admin_project_path, class: "btn btn-outline-dark" %>|| <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link"><%= link_to 'Add Client', new_client_path, class: "btn btn-outline-dark" %>||</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#"><%= link_to 'User List', admin_users_path, class: "btn btn-outline-dark" %>||</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#"><%= link_to 'Project List', admin_projects_path, class: "btn btn-outline-dark"%>||</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#"><%= link_to 'Add User', new_admin_user_path, class: "btn btn-outline-dark" %></a>
+              </li>
+          </ul>
+          <ul class="navbar-nav">
+              <li class="nav-item">
+                  <a class="nav-link"><%= link_to 'Edit Profile', edit_user_registration_path, class: "btn btn-outline-dark" %>||</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link"><%= link_to 'Log Out', destroy_user_session_path, method: :delete, class: "btn btn-outline-dark" %></a>
+              </li>
+              <% else %>
+              <li class="nav-item">
+                <a class="nav-link"><%= link_to 'Log In', new_user_session_path, class: "btn btn-success" %></a>
+              </li>
+          </ul>          
+
+          <% end %>
       </div>
-      <% end %>
-    </div>
-  </div>
-</nav>
+  </nav>
+</div>

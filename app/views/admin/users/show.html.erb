@@ -1,28 +1,27 @@
-<h1 class="text-center">User Information</h1>
 <div class="container">	
-
-<% if @user.profile_image.attached? %>
-<td><%= image_tag @user.profile_image, style: "width: 200px; display: block" %></td>
-<% end %>
-	<table class="">
-		<tbody>
-			<tr>
-				<td><strong>First Name : </strong></td>
-				<td><%= @user.first_name %></td>
-			</tr>
-			<tr>
-				<td><strong> Last Name : </strong></td>
-				<td><%= @user.last_name %></td>
-			</tr>
-			<tr>
-				<td><strong>Created At : </strong></td>
-				<td><%= @user.created_at %></td>
-			</tr>
-			<tr>
-				<td><strong>User Email : </strong></td>
-				<td><%= @user.email %></td>
-			</tr>
-		</tbody>
-	</table>
-  <%= link_to 'Back To Users', admin_users_path, class: "btn btn-success"%>
+  <h1 class="text-center">User Information</h1>
+  <%= link_to 'Back', admin_users_path, class: "btn btn-success float-right"%>
+  <% if @user.profile_image.attached? %>
+    <%= image_tag @user.profile_image, style: "width: 200px; display: block" %>
+  <% end %>
+    <table class="">
+      <tbody>
+        <tr>
+          <td><strong>First Name : </strong></td>
+          <td><%= @user.first_name %></td>
+        </tr>
+        <tr>
+          <td><strong> Last Name : </strong></td>
+          <td><%= @user.last_name %></td>
+        </tr>
+        <tr>
+          <td><strong>Created At : </strong></td>
+          <td><%= @user.created_at %></td>
+        </tr>
+        <tr>
+          <td><strong>User Email : </strong></td>
+          <td><%= @user.email %></td>
+        </tr>
+      </tbody>
+    </table>
 </div>
