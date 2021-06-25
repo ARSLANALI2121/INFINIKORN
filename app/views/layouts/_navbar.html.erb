@@ -4,16 +4,16 @@
         <% if user_signed_in? && current_user%>
           <ul class="navbar-nav mr-auto">
               <li class="nav-item active">
-                  <a class="nav-link"><%= link_to 'New Project', new_admin_project_path, class: "btn btn-outline-dark" %>|| <span class="sr-only">(current)</span></a>
+                  <a class="nav-link"><%= link_to 'New Project', new_manager_project_path, class: "btn btn-outline-dark" %>|| <span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item">
-                  <a class="nav-link"><%= link_to 'Add Client', new_client_path, class: "btn btn-outline-dark" %>||</a>
+                  <a class="nav-link"><%= link_to 'Add Client', new_manager_client_path, class: "btn btn-outline-dark" %>||</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#"><%= link_to 'User List', admin_users_path, class: "btn btn-outline-dark" %>||</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#"><%= link_to 'Project List', admin_projects_path, class: "btn btn-outline-dark"%>||</a>
+                <a class="nav-link" href="#"><%= link_to 'Project List', manager_projects_path, class: "btn btn-outline-dark"%>||</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#"><%= link_to 'Add User', new_admin_user_path, class: "btn btn-outline-dark" %></a>
@@ -26,12 +26,13 @@
               <li class="nav-item">
                   <a class="nav-link"><%= link_to 'Log Out', destroy_user_session_path, method: :delete, class: "btn btn-outline-dark" %></a>
               </li>
-              <% else %>
-              <li class="nav-item">
-                <a class="nav-link"><%= link_to 'Log In', new_user_session_path, class: "btn btn-success" %></a>
-              </li>
-          </ul>          
-
+          </ul>
+          <% else %>
+          <ul class="nav navbar-nav float-left">
+            <li class="nav-item">
+              <%= link_to 'Log in', new_user_session_path,  class: "btn btn-outline-success" %>
+            </li>
+          </ul>
           <% end %>
       </div>
   </nav>

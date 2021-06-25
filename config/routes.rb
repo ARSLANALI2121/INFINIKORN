@@ -4,11 +4,14 @@ Rails.application.routes.draw do
  
   namespace :admin  do 
     resources :users
+    
+end 
+  namespace :manager do
+    resources :clients
     resources :projects do
       resources :comments
   end
-end 
+end
 
-  resources :clients
-  root to: 'admin/projects#index' 
+  root to: 'manager/projects#index' 
 end

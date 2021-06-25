@@ -1,4 +1,4 @@
-module Admin
+module Manager
   class ProjectsController < BaseController
     before_action :authenticate_user!, only: %i[edit destroy update]
     before_action :set_project, only: %i[show edit destroy update]
@@ -20,7 +20,7 @@ module Admin
       @project.user_id = current_user.id
       if @project.save
         flash[:notice] = 'Your Project is created successfully'
-        redirect_to admin_projects_path
+        redirect_to manager_projects_path
       else
         render 'new'
       end
@@ -29,7 +29,7 @@ module Admin
     def update
       if @project.update(params_project)
         flash[:notice] = 'Project Information is updated successfully'
-        redirect_to admin_projects_path
+        redirect_to manager_projects_path
       else
         render 'edit'
       end      

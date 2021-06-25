@@ -1,4 +1,4 @@
-module Admin
+module Manager
   class CommentsController < BaseController
     before_action :set_comment
 

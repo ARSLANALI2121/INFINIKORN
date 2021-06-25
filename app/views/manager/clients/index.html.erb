@@ -1,9 +1,9 @@
 <div class="container">
   <p id="notice"><%= notice %></p>
 
-  <h1>Clients</h1>
+  <h1 class="text-center">Client Listing</h1>
 
-  <table>
+  <table class="table table-borderless table-light">
     <thead>
       <tr>
         <th>First name</th>
@@ -23,15 +23,12 @@
           <td><%= client.address %></td>
           <td><%= client.phone_number %></td>
           <td><%= client.email %></td>
-          <td><%= link_to 'Show', client %></td>
-          <td><%= link_to 'Edit', edit_client_path(client) %></td>
-          <td><%= link_to 'Destroy', client, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to 'Show', manager_client_path(client) , class:"btn btn-light" %></td>
+          <td><%= link_to 'Edit', edit_manager_client_path(client) , class:"btn btn-light" %></td>
+          <td><%= link_to 'Destroy', manager_client_path(client), method: :delete, data: { confirm: 'Are you sure?' } , class:"btn btn-danger"%></td>
         </tr>
       <% end %>
     </tbody>
   </table>
 
-  <br>
-
-  <%= link_to 'New Client', new_client_path %>
 </div>
