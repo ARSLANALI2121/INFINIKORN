@@ -1,0 +1,5 @@
+<%= form_for([:manager, @client, @project, @project.comments.build], remote: true) do |f| %>
+  <h1><%= f.label :comment %></h1><br />
+  <%= f.text_area :content %><br />
+  <%= f.submit %>
+<% end %>

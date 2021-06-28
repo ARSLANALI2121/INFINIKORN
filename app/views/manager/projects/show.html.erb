@@ -1,7 +1,7 @@
 <div class="container">	
   <h1 class="text-center"><%= @project.name %></h1>
     <p id="notice"><%= notice %></p>
-    <%= link_to 'Go Back', admin_projects_path, class: "btn btn-secondary float-right" %>
+    <%= link_to 'Go Back', manager_client_projects_path, class: "btn btn-secondary float-right" %>
     <table class="">
       <tbody>
         <tr>
@@ -21,17 +21,17 @@
 
     <div id='comments-section'>
       <% @project.comments.each do |comment| %>
-        <%= render 'admin/comments/comment', comment: comment %>
-        <%= link_to "Delete", ([:admin, @project, comment]), method: :delete, data: { confirm: 'Are you sure?' } %>
+        <%= render 'manager/comments/comment', comment: comment %>
+        <%= link_to "Delete", ([:manager, @client, @project, comment]), method: :delete, data: { confirm: 'Are you sure?' } %>
       <% end %>
     </div>
-
+ 
     <div class="comment">
       Total Comments : <%= @project.comments.count %>	
     </div>
 
     <div id="comment">
-      <%= render 'admin/comments/form'%>
+      <%= render 'manager/comments/form'%>
     </div>
 
   </div>
