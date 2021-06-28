@@ -1,5 +1,5 @@
 <div class="container">
-  <%= form_for [:manager, @project] do |p| %>
+  <%= form_for [:manager, @client, @project] do |p| %>
     <div class="container">
       <% if @project.errors.any? %>
         <% @project.errors.full_messages.each  do |error| %>

@@ -1,5 +1,6 @@
 <h1 class="text-center">Project Listing</h1>
 <div class="container">
+  <%= link_to 'New Project', new_manager_client_project_path(@client, @project), class:"btn btn-danger float-right" %>
   <table class="table table-borderless table-light">
     <thead>
       <tr>
@@ -14,10 +15,10 @@
           <td><%= project.name %></td>
           <td><%= project.description %></td>
           <td><%= project.created_at%></td>
-          <td><%= link_to 'Show', manager_project_path(project), class:"btn btn-light" %></td>
+          <td><%= link_to 'show', manager_client_project_path(@client, project), class:"btn btn-light" %></td>
           <% if user_signed_in? %>
-          <td> <%= link_to 'Edit', edit_manager_project_path(project), class:"btn btn-light" %></td>
-          <td><%= link_to 'Delete', manager_project_path(project), method: :delete, data: { confirm: 'Are you sure?' } , class:"btn btn-danger"%></td>
+          <td> <%= link_to 'Edit', edit_manager_client_project_path(@client, project), class:"btn btn-light" %></td>
+          <td><%= link_to 'Delete', manager_client_project_path(@client, project), method: :delete, data: { confirm: 'Are you sure?' } , class:"btn btn-danger"%></td>
           <% end %>
         </tr>
       <% end %>

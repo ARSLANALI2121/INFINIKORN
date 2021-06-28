@@ -1,6 +1,6 @@
 module  Admin
   class UsersController < BaseController
-    before_action :set_user, only: %i[show edit destroy update]
+    before_action :set_user, only: %i[show edit destroy update deactivate]
 
     def index
       @user = User.all
@@ -41,6 +41,16 @@ module  Admin
     def edit; end
 
     def show; end
+
+    def deactivate
+      if (@user.is_active == true)
+        @user.update_attribute(:is_active, false)
+        redirect_to admin_users_path
+      else
+        @user.update_attribute(is_active: true)
+        redirect_to admin_users_path
+      end
+    end
 
     private
 

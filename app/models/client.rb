@@ -1,5 +1,7 @@
 class Client < ApplicationRecord
 
+  has_many :projects, dependent: :destroy
+  
   EMAIL_FORMAT = /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
 
   validates :first_name, :last_name, presence: true
