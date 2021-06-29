@@ -1,14 +1,12 @@
 Rails.application.routes.draw do
 
-  devise_for :users
+  devise_for :users, controllers: {sessions: 'sessions'}
  
   namespace :admin  do 
     resources :users do 
       member do
-        get :deactivate
-        get :activate
+        get :user_activation
       end
-    # get "/deactivate", to: "users#deactivate"
     end
 end 
 

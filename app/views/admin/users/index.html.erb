@@ -19,10 +19,10 @@
           <td><%= link_to 'Show', admin_user_path(user) , class:"btn btn-info" %></td>
           <td> <%= link_to 'Edit', edit_admin_user_path(user), class:"btn btn-secondary" %></td>
           <td><%= link_to 'Delete', admin_user_path(user), method: :delete, data: { confirm: 'Are you sure?' } , class: "btn btn-danger"%></td>
-          <% if user.is_active == true %>
-          <td><%= link_to 'Deactive', activate_admin_user_path(user), class:"btn btn-info" %></td>
+          <% if user.is_active? %>
+          <td><%= link_to 'Disable', user_activation_admin_user_path(user), class:"btn btn-info" %></td>
           <% else %>
-          <td><%= link_to 'Active', activate_admin_user_path(user) , class:"btn btn-info" %></td>
+          <td><%= link_to 'Enable', user_activation_admin_user_path(user) , class:"btn btn-info" %></td>
           <% end %>
         </tr>
       <% end %>
