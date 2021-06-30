@@ -10,13 +10,13 @@ module  Admin
       @user = User.new
     end
 
-    def create    
+    def create
       @user = User.new user_params
       if @user.save  
         flash[:notice] = 'User was successfully created'
         redirect_to admin_users_path
       else
-        render 'new'
+        render :new
       end
     end
 
@@ -24,7 +24,7 @@ module  Admin
       if @user.update(user_params)
         flash[:notice]= 'User was successfully Updated'
         else
-          render 'edit'
+          render :edit
         end
         redirect_to admin_users_path
     end
@@ -59,9 +59,8 @@ module  Admin
     end
 
     def user_params
-      params.require(:user).permit(:first_name, :last_name, :password, :password_confirmation, :email, :profile_image)
+      params.require(:user).permit(:first_name, :last_name, :password, :password_confirmation, :email, :profile_image, :role)
     end
 
   end
-  
 end

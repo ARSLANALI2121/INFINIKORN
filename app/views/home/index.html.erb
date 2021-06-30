@@ -1,7 +1,0 @@
-<h1>Welcome To Our Project Management System</h1>
-<% if current_user %>
-	<%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: "btn btn-light" %>
-	<%= link_to 'New Project', new_project_path%>
-<% else %>
-	<%= link_to 'Sign Up', new_user_registration_path %>
-<% end %>

@@ -1,6 +1,5 @@
 module Manager
   class ProjectsController < BaseController
-    # before_action :authenticate_user!, only: %i[edit destroy update]
     before_action :set_client
     before_action :set_project, only: %i[show edit destroy update]
     
@@ -23,7 +22,7 @@ module Manager
         flash[:notice] = 'Your Project is created successfully'
         redirect_to manager_client_projects_path
       else
-        render 'new'
+        render :new
       end
     end
   
@@ -32,7 +31,7 @@ module Manager
         flash[:notice] = 'Project Information is updated successfully'
         redirect_to manager_projects_path
       else
-        render 'edit'
+        render :edit
       end      
     end
   
