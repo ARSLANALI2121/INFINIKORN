@@ -3,9 +3,11 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable
 
   has_many :comments, dependent: :destroy
+  has_one_attached :profile_image
+  
   validates :password, presence: true
   validates :password, confirmation: { case_sensitive: true }
-  has_one_attached :profile_image
+
 
   ROLES = {
     admin: 'admin', manager: 'manager', hr_member: 'hr_member'

@@ -1,0 +1,28 @@
+<div class="container float-right">
+  <%= form_for [:manager, @client, @project, @payment] do |f| %>
+  <div class="container">
+    <% if @payment.errors.any? %>
+      <% @payment.errors.full_messages.each  do |error| %>
+        <li> <%= error %></li>
+      <% end %>
+    <% end %>
+  </div>
+    <div class="row">
+      <div class="col-md-10 form-group ">
+          <%= f.text_field :amount,  class:"form-control", placeholder:" Enter Amount", required: true %>  
+          <span class="error_form" id="uname_error_message"></span>
+      </div>
+
+      <div class="col-md-10 form-group">
+          <%= f.text_field :bank_name, class:"form-control", placeholder:" Bank information for payment", required: true %> 
+          <span class="error_form" id="email_error_message"></span>  
+      </div>
+      <div class="col-md-10 form-group">
+        <%= f.text_field :bank_name, class:"form-control", placeholder:" Bank information for payment", required: true %>
+        <%= f.collection_select(:client_ids, Client.all, :id, :name,{}, { :multiple => true } ) %>
+        <span class="error_form" id="email_error_message"></span>  
+    </div>
+    </div>
+    <%= f.submit  class:"btn btn-secondary" %>
+  <% end %>
+</div>

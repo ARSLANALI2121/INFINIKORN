@@ -2,10 +2,9 @@ module Manager
   class ProjectsController < BaseController
     before_action :set_client
     before_action :set_project, only: %i[show edit destroy update]
-    
 
     def index
-      @project = Project.all
+      @project = @client.projects
     end
 
     def new
@@ -19,8 +18,7 @@ module Manager
     def create
       @project = @client.projects.new params_project
       if @project.save
-        flash[:notice] = 'Your Project is created successfully'
-        redirect_to manager_client_projects_path
+        redirect_to manager_client_projects_path, notice: 'Your Project is created successfully'       
       else
         render :new
       end
@@ -28,17 +26,15 @@ module Manager
   
     def update
       if @project.update(params_project)
-        flash[:notice] = 'Project Information is updated successfully'
-        redirect_to manager_projects_path
+        redirect_to manager_projects_path, notice: 'Project Information is updated successfully'
       else
         render :edit
-      end      
+      end
     end
   
     def destroy
       if @project.destroy
-        flash[:notice] = 'Project is deleted successfully'
-        redirect_to manager_client_projects_path
+        redirect_to manager_client_projects_path, notice: 'Project is deleted successfully'
       else
         redirect_to @project
       end
@@ -47,7 +43,7 @@ module Manager
     private
 
     def set_project
-      @project = Project.find(params[:id])
+      @project = @client.projects.find(params[:id])
     end
 
     def set_client
