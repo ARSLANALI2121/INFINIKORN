@@ -37,8 +37,13 @@
         <%= f.file_field :profile_image %>
         <span class="error_form" id="password_error_message"></span> 
       </div>
+      
+      <div class="col-md-10 form-group">
+        <%= f.select(:role, [['Member', 'hr_member'], ['Manager', 'manager'], ['Admin', 'admin']]) %>
+        <span class="error_form" id="password_error_message"></span> 
+      </div>
     
-    </div>     
-    <%= f.submit  class:"btn btn-secondary" %>	                						
+    </div>
+    <%= f.submit  class:"btn btn-secondary" %>
   <% end %>
 </div>

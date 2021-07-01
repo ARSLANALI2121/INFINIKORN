@@ -1,10 +1,9 @@
 class Client < ApplicationRecord
 
   has_many :projects, dependent: :destroy
-  
-  EMAIL_FORMAT = /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
+  has_many :payments
 
   validates :first_name, :last_name, presence: true
-  validates :email, presence: true, uniqueness: true, format: {with: EMAIL_FORMAT }
+  validates :email, presence: true, format: { with: Devise.email_regexp, on: :create }, uniqueness: { case_sensitive: false }
 
 end
